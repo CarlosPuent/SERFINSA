@@ -1,0 +1,71 @@
+<div class="header-panel">
+  <h2>Gestión de Productos</h2>
+  <button (click)="goBack()" class="back-button">← Volver al panel</button>
+</div>
+
+<form [formGroup]="productForm" (ngSubmit)="saveProduct()" class="product-form">
+  <div class="form-field">
+    <label for="code">Código</label>
+    <input formControlName="code" id="code" placeholder="Código" />
+  </div>
+
+  <div class="form-field">
+    <label for="name">Nombre</label>
+    <input formControlName="name" id="name" placeholder="Nombre" />
+  </div>
+
+  <div class="form-field">
+    <label for="description">Descripción</label>
+    <input formControlName="description" id="description" placeholder="Descripción" />
+  </div>
+
+  <div class="form-field">
+    <label for="price">Precio</label>
+    <input formControlName="price" id="price" type="number" placeholder="Precio" />
+  </div>
+
+  <div class="form-field">
+    <label for="stock">Stock</label>
+    <input formControlName="stock" id="stock" type="number" placeholder="Stock" />
+  </div>
+
+  <div class="form-field">
+    <label for="categoryIds">Categorías</label>
+    <select formControlName="categoryIds" id="categoryIds" multiple>
+      <option *ngFor="let cat of categories" [value]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit">{{ editingId ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" (click)="resetForm()">Cancelar</button>
+  </div>
+</form>
+
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+      <td>
+        <button (click)="editProduct(product)">Editar</button>
+        <button (click)="deleteProduct(product.id!)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,11 @@
+<div class="dashboard">
+  <h1>Bienvenido al panel</h1>
+  <p>Has iniciado sesión correctamente como <strong>{{ username }}</strong>.</p>
+
+  <div class="button-group">
+    <button (click)="goToUsers()">Gestión de usuarios</button>
+    <button (click)="goToCategories()">Gestión de categorías</button>
+    <button (click)="goToProducts()">Gestión de productos</button>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="header-panel">
+  <h2>Gestión de Categorías</h2>
+  <button (click)="goBack()" class="back-button">← Volver al panel</button>
+</div>
+
+<form [formGroup]="categoryForm" (ngSubmit)="saveCategory()" class="category-form">
+  <div class="form-field">
+    <label for="code">Código</label>
+    <input formControlName="code" id="code" placeholder="Código" />
+  </div>
+
+  <div class="form-field">
+    <label for="name">Nombre</label>
+    <input formControlName="name" id="name" placeholder="Nombre" />
+  </div>
+
+  <div class="form-field">
+    <label for="description">Descripción</label>
+    <input formControlName="description" id="description" placeholder="Descripción" />
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit">{{ editingId ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" (click)="resetForm()">Cancelar</button>
+  </div>
+</form>
+
+<table class="category-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.id }}</td>
+      <td>{{ category.code }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+      <td>
+        <button (click)="editCategory(category)">Editar</button>
+        <button (click)="deleteCategory(category.id!)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,57 @@
+<div class="header-panel">
+  <h2>Gestión de Usuarios</h2>
+  <button (click)="goBack()" class="back-button">← Volver al panel</button>
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="saveUser()" class="user-form">
+  <div class="form-field">
+    <label for="username">Usuario</label>
+    <input formControlName="username" id="username" placeholder="Username" />
+  </div>
+
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input formControlName="email" id="email" placeholder="Email" />
+  </div>
+
+  <div class="form-field">
+    <label for="password">Password</label>
+    <input formControlName="password" id="password" type="password" placeholder="Password" />
+  </div>
+
+  <div class="form-field checkbox-field">
+    <label>
+      <input type="checkbox" formControlName="admin" />
+      Admin
+    </label>
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit">{{ editingId ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" (click)="resetForm()">Cancelar</button>
+  </div>
+</form>
+
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuario</th>
+      <th>Email</th>
+      <th>Roles</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.roles?.join(', ') || 'Sin roles' }}</td>
+      <td>
+        <button (click)="editUser(user)">Editar</button>
+        <button (click)="deleteUser(user.id!)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
