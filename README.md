@@ -1,6 +1,6 @@
-# SERFINSA – Proyecto Full Stack (Angular + Spring Boot + MySQL)
+# SERFINSA – Proyecto Prueba Técnica
 
-## ⚙️ Requisitos Previos
+## Requisitos Previos
 
 Antes de ejecutar el proyecto, asegúrese de tener instalado lo siguiente:
 
@@ -14,7 +14,7 @@ Antes de ejecutar el proyecto, asegúrese de tener instalado lo siguiente:
 
 ---
 
-## 🗃️ Importación de la Base de Datos
+## Importación de la Base de Datos
 
 Dentro de la carpeta \`dataBase\` se encuentra el script necesario para cargar los datos de prueba. Puede hacerlo de dos formas:
 
@@ -25,7 +25,7 @@ Dentro de la carpeta \`dataBase\` se encuentra el script necesario para cargar l
 3. Cargar el archivo `.sql` ubicado en la carpeta `/dataBase`
 4. Ejecutar el script para crear las tablas y registros de ejemplo
 
-### Opción 2: Importar desde Dump Folder (recomendado)
+### Opción 2: Importar desde Dump Folder
 
 1. Abrir MySQL Workbench
 2. Ir a: `Server > Data Import`
@@ -45,7 +45,7 @@ Una vez completado, la base de datos incluirá:
 
 ---
 
-## 🔧 Configuración del Backend
+## Configuración del Backend
 
 1. Ingresar a la carpeta \`inventory\`
 2. Configurar las credenciales en el archivo \`src/main/resources/application.properties\`:
@@ -56,7 +56,7 @@ spring.datasource.username=SU_USUARIO
 spring.datasource.password=SU_CONTRASEÑA
 \`\`\`
 
-## 👤 Acceso de prueba
+## Acceso de prueba
 
 A continuación, se presentan credenciales preconfiguradas para ingresar al sistema:
 
